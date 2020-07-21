@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormCallBack</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  </head>
+  <body>
+    <div class="form_wrapper">
+      <form method="POST" action="mailto:igotsto@bk.ru" enctype="text/plain" class="form_wrapper-body form_wrapper-option">
+        <p class="form_wrapper-appeal">Оставьте ваши данные</p>
+        <div class="form_wrapper-conteiner">
+            <span class="form_wrapper-input-error form_wrapper-error-one"></span>
+          <div class="form_wrapper-element">
+            <input type="text" name="name" placeholder="Введите ваше имя" class="form_wrapper-input-all form_wrapper-input-one"/>
+          </div>
+          <span class="form_wrapper-input-error form_wrapper-error-two"></span>
+          <div class="form_wrapper-element">
+            <input type="text" name="tel" placeholder="Введите ваш телефон" class="form_wrapper-input-all form_wrapper-input-two" />
+          </div>
+          <span class="form_wrapper-input-error form_wrapper-error-three"></span>
+          <div class="form_wrapper-element">
+            <input type="text" name="email" placeholder="Введите вашу почту" class="form_wrapper-input-all form_wrapper-input-three" />
+          </div>
+          <div class="form_wrapper-element">
+            <textarea class="form_wrapper-input-textarea"></textarea>
+          </div>
+          <div class="form_wrapper-element-button">
+            <button type="submit" class="form_wrapper-button">Отправить</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

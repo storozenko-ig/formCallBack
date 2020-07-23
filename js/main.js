@@ -20,7 +20,7 @@ let spanThree = document.querySelector(".form_wrapper-error-three");
 let button = document.querySelector(".form_wrapper-button");
 let form = document.querySelector(".form_wrapper-body");
 
-button.onsubmit = async (event) => {
+button.onclick = () => {
   let name = document.querySelector(".form_wrapper-input-one").value;
   let phone = document.querySelector(".form_wrapper-input-two").value;
   let email = document.querySelector(".form_wrapper-input-three").value;
@@ -30,13 +30,15 @@ button.onsubmit = async (event) => {
   correctnesFildPhone(phone, spanTwo, phoneError, phoneNotCorrect);
   correctnesFildEmail(email, spanThree, emailError, emailNotCorrect);
   if ((user.name && user.phone) || (user.name && user.email) || (user.name && user.phone && user.email)) {
-    let formData = new FormData(form);
-    let respons = await fetch("URL", {
-      method: "GET",
-      body: formData,
-    });
-    let result = await respons.json();
-    console.log(result);
+    form.onsubmit = async (event) => {
+      let formData = new FormData(form);
+      let respons = await fetch("URL", {
+        method: "GET",
+        body: formData,
+      });
+      let result = await respons.json();
+      console.log(result);
+    };
   } else {
     return false;
   }

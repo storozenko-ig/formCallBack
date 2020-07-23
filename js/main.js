@@ -42,7 +42,7 @@ button.onsubmit = async (event) => {
   }
 };
 
-function correctnesFildName(name, spanOne, nameError, nameIsRequired) {
+function correctnesFildName(name, spanOne, nameError) {
   if (name.length < 1) {
     spanOne.innerHTML = nameError;
   } else {
@@ -50,7 +50,7 @@ function correctnesFildName(name, spanOne, nameError, nameIsRequired) {
   }
 }
 
-function correctnesFildPhone(phone, spanTwo, phoneError, phoneIsRequired, phoneNotCorrect) {
+function correctnesFildPhone(phone, spanTwo, phoneError, phoneNotCorrect) {
   if (phone === "") {
     spanTwo.innerHTML = phoneError;
   } else if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(phone)) {
@@ -60,7 +60,7 @@ function correctnesFildPhone(phone, spanTwo, phoneError, phoneIsRequired, phoneN
   }
 }
 
-function correctnesFildEmail(email, spanThree, emailError, mailIsRequired, emailNotCorrect) {
+function correctnesFildEmail(email, spanThree, emailError, emailNotCorrect) {
   if (email === "") {
     spanThree.innerHTML = emailError;
   } else if (/^[a-zA-z]+\W?[a-z]+@[a-zA-z]+\.[a-z]{2,3}$/.test(email)) {

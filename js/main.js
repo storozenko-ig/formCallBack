@@ -26,13 +26,13 @@ button.onsubmit = async (event) => {
   let email = document.querySelector(".form_wrapper-input-three").value;
   let commit = document.querySelector(".form_wrapper-input-textarea").value;
   let user = new User(name, phone, email, commit);
-  correctnesFildName(name, spanOne, nameError, nameIsRequired);
-  correctnesFildPhone(phone, spanTwo, phoneError, phoneIsRequired, phoneNotCorrect);
-  correctnesFildEmail(email, spanThree, emailError, mailIsRequired, emailNotCorrect);
+  correctnesFildName(name, spanOne, nameError);
+  correctnesFildPhone(phone, spanTwo, phoneError, phoneNotCorrect);
+  correctnesFildEmail(email, spanThree, emailError, emailNotCorrect);
   if ((user.name && user.phone) || (user.name && user.email) || (user.name && user.phone && user.email)) {
     let formData = new FormData(form);
     let respons = await fetch("URL", {
-      method: "POST",
+      method: "GET",
       body: formData,
     });
     let result = await respons.json();

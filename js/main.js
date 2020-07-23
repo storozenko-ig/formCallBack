@@ -1,6 +1,6 @@
 //Name
 const nameError = "Поле обязательно для заполнения";
-//Phone
+// Phone
 const phoneError = "Поле обязательно для заполнения";
 const phoneNotCorrect = "Некооректный номер телефона";
 //Email
@@ -12,68 +12,60 @@ function User(name, phone, email, commit) {
   this.phone = phone;
   this.email = email;
   this.commit = commit;
-  this.nameIsRequired = false;
-  this.phoneIsRequired = false;
-  this.mailIsRequired = false;
-  this.commitIsRequired = false;
 }
 
-let correctnessFilds = (spanOne, spanTwo, spanThree) => {
-  if (this.name.length > 1) {
-    !this.nameIsRequired;
-    spanOne.innerHTML = "";
-  } else {
-    spanOne.innerHTML = nameError;
-  }
-
-  if (this.phone === "") {
-    spanTwo.innerHTML = phoneError;
-  } else if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(this.phone)) {
-    !this.phoneIsRequired;
-    spanTwo.innerHTML = "";
-  } else {
-    spanTwo.innerHTML = phoneNotCorrect;
-  }
-
-  if (this.email === "") {
-    spanThree.innerHTML = emailError;
-  } else if (/^[a-zA-z]+\W?[a-z]+@[a-zA-z]+\.[a-z]{2,3}$/.test(this.email)) {
-    !this.mailIsRequired;
-    spanThree.innerHTML = "";
-  } else {
-    spanThree.innerHTML = emailNotCorrect;
-  }
-};
-
-let sendMassages = (form, button) => {
-  button.onsubmit = async () => {
-    let user = new User(name, phone, email, commit);
-    correctnessFilds(spanOne, spanTwo, spanThree);
-    if (
-      (!this.nameIsRequired && !this.phoneIsRequired) ||
-      (!this.nameIsRequired && !this.mailIsRequired) ||
-      (!this.nameIsRequired && !this.mailIsRequired && !this.phoneIsRequired)
-    ) {
-      let formData = new FormData(form);
-      let respons = await fetch("URL", {
-        method: "POST",
-        body: formData,
-      });
-      let result = await respons.json();
-      console.log(result);
-    } else {
-      return false;
-    }
-  };
-};
-
-// Value.input
-let name = document.querySelector(".form_wrapper-input-one").value;
-let phone = document.querySelector(".form_wrapper-input-two").value;
-let email = document.querySelector(".form_wrapper-input-three").value;
-let commit = document.querySelector(".form_wrapper-input-textarea").value;
 let spanOne = document.querySelector(".form_wrapper-error-one");
 let spanTwo = document.querySelector(".form_wrapper-error-two");
 let spanThree = document.querySelector(".form_wrapper-error-three");
 let button = document.querySelector(".form_wrapper-button");
 let form = document.querySelector(".form_wrapper-body");
+
+button.onsubmit = async (event) => {
+  let name = document.querySelector(".form_wrapper-input-one").value;
+  let phone = document.querySelector(".form_wrapper-input-two").value;
+  let email = document.querySelector(".form_wrapper-input-three").value;
+  let commit = document.querySelector(".form_wrapper-input-textarea").value;
+  let user = new User(name, phone, email, commit);
+  correctnesFildName(name, spanOne, nameError, nameIsRequired);
+  correctnesFildPhone(phone, spanTwo, phoneError, phoneIsRequired, phoneNotCorrect);
+  correctnesFildEmail(email, spanThree, emailError, mailIsRequired, emailNotCorrect);
+  if ((user.name && user.phone) || (user.name && user.email) || (user.name && user.phone && user.email)) {
+    let formData = new FormData(form);
+    let respons = await fetch("URL", {
+      method: "POST",
+      body: formData,
+    });
+    let result = await respons.json();
+    console.log(result);
+  } else {
+    return false;
+  }
+};
+
+function correctnesFildName(name, spanOne, nameError, nameIsRequired) {
+  if (name.length < 1) {
+    spanOne.innerHTML = nameError;
+  } else {
+    spanOne.innerHTML = "";
+  }
+}
+
+function correctnesFildPhone(phone, spanTwo, phoneError, phoneIsRequired, phoneNotCorrect) {
+  if (phone === "") {
+    spanTwo.innerHTML = phoneError;
+  } else if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(phone)) {
+    spanTwo.innerHTML = "";
+  } else {
+    spanTwo.innerHTML = phoneNotCorrect;
+  }
+}
+
+function correctnesFildEmail(email, spanThree, emailError, mailIsRequired, emailNotCorrect) {
+  if (email === "") {
+    spanThree.innerHTML = emailError;
+  } else if (/^[a-zA-z]+\W?[a-z]+@[a-zA-z]+\.[a-z]{2,3}$/.test(email)) {
+    spanThree.innerHTML = "";
+  } else {
+    spanThree.innerHTML = emailNotCorrect;
+  }
+}

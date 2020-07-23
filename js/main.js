@@ -46,14 +46,21 @@ let correctnessFilds = (spanOne, spanTwo, spanThree) => {
 };
 
 let sendMassages = (form, button) => {
-  button.onsubmit = () => {
+  button.onsubmit = async () => {
+    let user = new User(name, phone, email, commit);
     correctnessFilds(spanOne, spanTwo, spanThree);
     if (
       (!this.nameIsRequired && !this.phoneIsRequired) ||
       (!this.nameIsRequired && !this.mailIsRequired) ||
       (!this.nameIsRequired && !this.mailIsRequired && !this.phoneIsRequired)
     ) {
-      let send = new FormData(form);
+      let formData = new FormData(form);
+      let respons = await fetch("URL", {
+        method: "POST",
+        body: formData,
+      });
+      let result = await respons.json();
+      console.log(result);
     } else {
       return false;
     }
@@ -70,5 +77,3 @@ let spanTwo = document.querySelector(".form_wrapper-error-two");
 let spanThree = document.querySelector(".form_wrapper-error-three");
 let button = document.querySelector(".form_wrapper-button");
 let form = document.querySelector(".form_wrapper-body");
-
-let user = new User(name, phone, email, commit);

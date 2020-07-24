@@ -15,10 +15,16 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 550px;
+  min-height: 550px;
   margin: 0 auto;
   padding: 30px;
   background: url("../images/plash2.jpg") no-repeat center top;
   border-radius: 5px;
+}
+@media screen and (min-width: 800px) {
+  .form_wrapper {
+    min-height: 500px;
+  }
 }
 .form_wrapper-option {
   width: 100%;
@@ -46,6 +52,21 @@ body {
   height: 50px;
   margin-bottom: 20px;
 }
+@media screen and (min-width: 800px) {
+  .form_wrapper-element {
+    float: left;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .form_wrapper-element:nth-last-child(2) {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .form_wrapper-element:nth-last-child(7) {
+    width: 100%;
+  }
+}
 .form_wrapper-input-all {
   width: 100%;
   height: 50px;
@@ -53,6 +74,11 @@ body {
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid white;
+}
+@media screen and (min-width: 800px) {
+  .form_wrapper-input-one {
+    width: 50%;
+  }
 }
 .form_wrapper-input-textarea {
   width: 100%;

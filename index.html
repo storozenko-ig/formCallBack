@@ -8,20 +8,21 @@
   </head>
   <body>
     <div class="form_wrapper">
-      <form method="GET" action="/" enctype="text/plain" class="form_wrapper-body form_wrapper-option">
+        <!-- method="GET" action="/" enctype="text/plain" -->
+      <div  class="form_wrapper-body form_wrapper-option">
         <p class="form_wrapper-appeal">Оставьте ваши данные</p>
         <div class="form_wrapper-conteiner">
             <span class="form_wrapper-input-error form_wrapper-error-one"></span>
           <div class="form_wrapper-element">
-            <input type="text" name="name" placeholder="Введите ваше имя" class="form_wrapper-input-all form_wrapper-input-one"/>
+            <input type="text" class="form_wrapper-input-all form_wrapper-input-one"/>
           </div>
           <span class="form_wrapper-input-error form_wrapper-error-two"></span>
           <div class="form_wrapper-element">
-            <input type="text" name="tel" placeholder="Введите ваш телефон" class="form_wrapper-input-all form_wrapper-input-two" />
+            <input type="text" class="form_wrapper-input-all form_wrapper-input-two" />
           </div>
           <span class="form_wrapper-input-error form_wrapper-error-three"></span>
           <div class="form_wrapper-element">
-            <input type="text" name="email" placeholder="Введите вашу почту" class="form_wrapper-input-all form_wrapper-input-three" />
+            <input type="text" class="form_wrapper-input-all form_wrapper-input-three" />
           </div>
           <div class="form_wrapper-element">
             <textarea class="form_wrapper-input-textarea"></textarea>
@@ -30,8 +31,9 @@
             <button class="form_wrapper-button">Отправить</button>
           </div>
         </div>
-      </form>
+      </div>
     </div>
-    <script src="js/main.js"></script>
+    <script src="js/main-validation.js"></script>
+    <!-- <script src="js/main.js"></script> -->
   </body>
 </html>

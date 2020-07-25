@@ -11,18 +11,18 @@
         <!-- method="GET" action="/" enctype="text/plain" -->
       <div  class="form_wrapper-body form_wrapper-option">
         <p class="form_wrapper-appeal">Оставьте ваши данные</p>
-        <div class="form_wrapper-conteiner">
-            <span class="form_wrapper-input-error form_wrapper-error-one"></span>
+        <div class="form_wrapper-conteiner">        
           <div class="form_wrapper-element">
-            <input type="text" class="form_wrapper-input-all form_wrapper-input-one"/>
+            <div class="form_wrapper-conteiner-error"><span class="form_wrapper-input-error form_wrapper-error-one"></span></div>
+            <input type="text" class="form_wrapper-input-all form_wrapper-input-one" data-validatio="name"/>
+          </div>       
+          <div class="form_wrapper-element">
+            <div class="form_wrapper-conteiner-error"><span class="form_wrapper-input-error form_wrapper-error-two"></span></div>
+            <input type="text" class="form_wrapper-input-all form_wrapper-input-two" data-validatio="phone" />
           </div>
-          <span class="form_wrapper-input-error form_wrapper-error-two"></span>
           <div class="form_wrapper-element">
-            <input type="text" class="form_wrapper-input-all form_wrapper-input-two" />
-          </div>
-          <span class="form_wrapper-input-error form_wrapper-error-three"></span>
-          <div class="form_wrapper-element">
-            <input type="text" class="form_wrapper-input-all form_wrapper-input-three" />
+            <div class="form_wrapper-conteiner-error"><span class="form_wrapper-input-error form_wrapper-error-three"></span></div>
+            <input type="text" class="form_wrapper-input-all form_wrapper-input-three" data-validatio="email"/>
           </div>
           <div class="form_wrapper-element">
             <textarea class="form_wrapper-input-textarea"></textarea>

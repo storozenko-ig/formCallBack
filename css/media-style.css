@@ -1,0 +1,46 @@
+@media screen and (max-width: 800px) {
+  .form_wrapper-input-textarea {
+    margin: 20px 0;
+  }
+  .form_wrapper-element {
+    margin-bottom: 20px;
+  }
+  .form_wrapper-element-button {
+    margin-top: 70px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .form_wrapper-element {
+    float: left;
+    width: 50%;
+  }
+  .form_wrapper-element:nth-last-child(2) {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .form_wrapper-element:nth-last-child(5) {
+    width: 100%;
+  }
+  .form_wrapper-input-one {
+    width: 50%;
+  }
+  .form_wrapper {
+    min-height: 500px;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    background: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .form_wrapper-button {
+    font-size: 100%;
+    font-weight: 200;
+  }
+  .form_wrapper-appeal {
+    font-size: 100%;
+    font-weight: 700;
+  }
+}

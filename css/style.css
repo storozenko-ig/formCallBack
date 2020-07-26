@@ -9,11 +9,6 @@ body {
   font: 16px "PT Sans", sans-serif;
   background: url("../images/fon.jpg") no-repeat center top;
 }
-@media screen and (max-width: 600px) {
-  body {
-    background: none;
-  }
-}
 .form_wrapper {
   display: flex;
   align-items: center;
@@ -25,11 +20,6 @@ body {
   padding: 30px;
   background: url("../images/plash2.jpg") no-repeat center top;
   border-radius: 5px;
-}
-@media screen and (min-width: 800px) {
-  .form_wrapper {
-    min-height: 500px;
-  }
 }
 .form_wrapper-option {
   width: 100%;
@@ -48,12 +38,6 @@ body {
   margin: 10px 10px;
   padding: 5px 5px;
 }
-@media screen and (max-width: 400px) {
-  .form_wrapper-appeal {
-    font-size: 100%;
-    font-weight: 700;
-  }
-}
 .form_wrapper-conteiner {
   width: 100%;
 }
@@ -63,22 +47,7 @@ body {
   height: 50px;
   margin-bottom: 30px;
 }
-@media screen and (min-width: 800px) {
-  .form_wrapper-element {
-    float: left;
-    width: 50%;
-  }
-}
-@media screen and (min-width: 800px) {
-  .form_wrapper-element:nth-last-child(2) {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 50px;
-  }
-  .form_wrapper-element:nth-last-child(5) {
-    width: 100%;
-  }
-}
+
 .form_wrapper-input-all {
   width: 100%;
   height: 50px;
@@ -86,11 +55,6 @@ body {
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid white;
-}
-@media screen and (min-width: 800px) {
-  .form_wrapper-input-one {
-    width: 50%;
-  }
 }
 .form_wrapper-input-textarea {
   width: 100%;
@@ -136,12 +100,6 @@ body {
   outline: none;
   cursor: pointer;
   transition: 0.3s;
-}
-@media screen and (max-width: 400px) {
-  .form_wrapper-button {
-    font-size: 100%;
-    font-weight: 200;
-  }
 }
 .form_wrapper-button:hover {
   transition: 0.3s;

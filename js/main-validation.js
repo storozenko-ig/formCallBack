@@ -6,20 +6,20 @@ button.onclick = () => {
     if (input.dataset.validatio) {
       correctnesFilds(input);
     }
+    if (input.dataset.flag) {
+      form.onsubmit = async (event) => {
+        let formData = new FormData(form);
+        let respons = await fetch("URL", {
+          method: "GET",
+          body: formData,
+        });
+        let result = await respons.json();
+        console.log(result);
+      };
+    } else {
+      return false;
+    }
   }
-  // if(...)
-  //   form.onsubmit = async (event) => {
-  //     let formData = new FormData(form);
-  //     let respons = await fetch("URL", {
-  //       method: "GET",
-  //       body: formData,
-  //     });
-  //     let result = await respons.json();
-  //     console.log(result);
-  //   };
-  // } else {
-  //   return false;
-  // }
 };
 
 function correctnesFilds(domElem) {
@@ -37,6 +37,7 @@ function correctnesFilds(domElem) {
       document.querySelector(".form_wrapper-error-two").innerHTML = "Поле обязательно для заполнения";
     } else if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(domElem.value)) {
       document.querySelector(".form_wrapper-error-two").innerHTML = "";
+      domElem.setAttribute("data-flag", "true");
     } else {
       document.querySelector(".form_wrapper-error-two").innerHTML = "Некоректный номер телефона";
     }
@@ -46,6 +47,7 @@ function correctnesFilds(domElem) {
       document.querySelector(".form_wrapper-error-three").innerHTML = "Поле обязательно для заполнения";
     } else if (/^[a-zA-z]+\W?[a-z]+@[a-zA-z]+\.[a-z]{2,3}$/.test(domElem.value)) {
       document.querySelector(".form_wrapper-error-three").innerHTML = "";
+      domElem.setAttribute("data-flag", "true");
     } else {
       document.querySelector(".form_wrapper-error-three").innerHTML = "Некоректный почтовый адрес";
     }

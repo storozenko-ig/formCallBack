@@ -1,12 +1,33 @@
+//messageName
+const nameError = "Поле обязательно для заполнения";
+const nameNotCorrect = "Проверьте поле имя";
+// messagePhone
+const phoneError = "Поле обязательно для заполнения";
+const phoneNotCorrect = "Некооректный номер телефона";
+//messageEmail
+const emailError = "Поле обязательно для заполнения";
+const emailNotCorrect = "Некооректный почтовый адрес";
+
 let button = document.querySelector(".form_wrapper-button");
 let form = document.querySelector(".form_wrapper-body");
 
+//fildsError
+let nameFildError = document.querySelector(".form_wrapper-error-one");
+let phoneFildError = document.querySelector(".form_wrapper-error-two");
+let emailFildError = document.querySelector(".form_wrapper-error-three");
+
 button.onclick = () => {
   for (let input of document.querySelectorAll(".form_wrapper-input-all")) {
-    if (input.dataset.validatio) {
-      correctnesFilds(input);
+    if (input.dataset.validatio === "name") {
+      correctnesFildname(input, nameFildError, nameError, nameNotCorrect);
+    } else if (input.dataset.validatio === "phone") {
+      correctnesFildphone(input, phoneFildError, phoneError, phoneNotCorrect, "data-correct", "true");
+    } else if (input.dataset.validatio === "email") {
+      correctnesFildemail(input, emailFildError, emailError, emailNotCorrect);
     }
-    if (input.dataset.flag) {
+  }
+  for (let input of document.querySelectorAll("[data-correct]")) {
+    if (input.dataset.correct) {
       form.onsubmit = async (event) => {
         let formData = new FormData(form);
         let respons = await fetch("URL", {
@@ -21,35 +42,3 @@ button.onclick = () => {
     }
   }
 };
-
-function correctnesFilds(domElem) {
-  if (domElem.dataset.validatio === "name") {
-    if (domElem.value === "") {
-      document.querySelector(".form_wrapper-error-one").innerHTML = "Поле обязательно для заполнения";
-    } else if (/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/.test(domElem.value)) {
-      document.querySelector(".form_wrapper-error-one").innerHTML = "";
-    } else {
-      document.querySelector(".form_wrapper-error-one").innerHTML = "Проверьте поле имя";
-    }
-  }
-  if (domElem.dataset.validatio === "phone") {
-    if (domElem.value === "") {
-      document.querySelector(".form_wrapper-error-two").innerHTML = "Поле обязательно для заполнения";
-    } else if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(domElem.value)) {
-      document.querySelector(".form_wrapper-error-two").innerHTML = "";
-      domElem.setAttribute("data-flag", "true");
-    } else {
-      document.querySelector(".form_wrapper-error-two").innerHTML = "Некоректный номер телефона";
-    }
-  }
-  if (domElem.dataset.validatio === "email") {
-    if (domElem.value === "") {
-      document.querySelector(".form_wrapper-error-three").innerHTML = "Поле обязательно для заполнения";
-    } else if (/^[a-zA-z]+\W?[a-z]+@[a-zA-z]+\.[a-z]{2,3}$/.test(domElem.value)) {
-      document.querySelector(".form_wrapper-error-three").innerHTML = "";
-      domElem.setAttribute("data-flag", "true");
-    } else {
-      document.querySelector(".form_wrapper-error-three").innerHTML = "Некоректный почтовый адрес";
-    }
-  }
-}

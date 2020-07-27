@@ -32,6 +32,18 @@
 @media screen and (max-width: 600px) {
   body {
     background: none;
+    margin: 0 auto;
+  }
+  .form_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    background: url("../images/plash2.jpg") no-repeat center top;
+    border-radius: 5px;
   }
 }
 @media screen and (max-width: 400px) {

@@ -16,14 +16,16 @@ let nameFildError = document.querySelector(".form_wrapper-error-one");
 let phoneFildError = document.querySelector(".form_wrapper-error-two");
 let emailFildError = document.querySelector(".form_wrapper-error-three");
 
-button.onclick = () => {
+button.onclick = (evt) => {
+  evt.preventDefault();
   for (let input of document.querySelectorAll(".form_wrapper-input-all")) {
+    console.log(input.dataset);
     if (input.dataset.validatio === "name") {
-      correctnesFildname(input, nameFildError, nameError, nameNotCorrect);
+      test(input.dataset.validatio, input, nameFildError, nameError, nameNotCorrect);
     } else if (input.dataset.validatio === "phone") {
-      correctnesFildphone(input, phoneFildError, phoneError, phoneNotCorrect, "data-correct", "true");
+      test(input.dataset.validatio, input, phoneFildError, phoneError, phoneNotCorrect, "data-correct", "true");
     } else if (input.dataset.validatio === "email") {
-      correctnesFildemail(input, emailFildError, emailError, emailNotCorrect);
+      test(input.dataset.validatio, input, emailFildError, emailError, emailNotCorrect);
     }
   }
   for (let input of document.querySelectorAll("[data-correct]")) {

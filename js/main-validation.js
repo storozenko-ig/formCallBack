@@ -30,7 +30,7 @@ button.onclick = (evt) => {
   }
   for (let input of document.querySelectorAll("[data-correct]")) {
     if (input.dataset.correct) {
-      form.onsubmit = async (event) => {
+      form.onsubmit = async () => {
         let formData = new FormData(form);
         let respons = await fetch("URL", {
           method: "GET",
